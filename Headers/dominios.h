@@ -29,8 +29,21 @@ public:
 
 class Banco{ //Formato XXX onde X é dígito (0 - 9).
 private:
+	int banco;
+
+	//Método responsável por validação
+
+	void validar(int) throw (invalid_argument);
 
 public:
+
+	//Métodos de acesso
+
+	void setBanco(int) throw (invalid_argument);
+
+    int getBanco() const {
+        return banco;
+    }
 
 };
 
@@ -80,10 +93,42 @@ public:
 class Data{ //Formato DD/MMM/AAAA. DD é número de 01 e 31. MMM é jan,
 			//fev, mar, abr, mai, jun, jul, ago, set, out, nov ou dez. AAAA é número de
 			//2000 a 2099. A data considera anos bissextos.
+private:
+	int data;
+
+	//Método responsável por validação
+
+	void validar(int) throw (invalid_argument);
+
+public:
+
+	//Métodos de acesso
+
+	void setData(int) throw (invalid_argument);
+
+    int getData() const {
+        return data;
+    }
 	
 };
 
 class DataDeValidade{ //Formato MM/AA. MM é número de 01 a 12. AA é número de 00 a 99.
+private:
+	int validade;
+
+	//Método responsável por validação
+
+	void validar(int) throw (invalid_argument);
+
+public:
+
+	//Métodos de acesso
+
+	void setDataDeValidade(int) throw (invalid_argument);
+
+    int getDataDeValidade() const {
+        return validade;
+    }
 	
 };
 
@@ -111,21 +156,87 @@ public:
 };
 
 class Identificador{ //Formato XXXXX onde X é letra minúscula (a - z).
+private:
+	string identificador;
+
+	//Método responsável por validação
+
+	void validar(string) throw (invalid_argument);
+	
+public:
+
+	//Métodos de acesso
+
+	void setIdentificador(string) throw (invalid_argument);
+
+    string getIdentificador() const {
+        return identificador;
+    }
+	
 
 };
 
 class Nome{ //Formato XXXXXXXXXXXXXXX . Cada X pode ser letra, espaço ou ponto.
 			//Pelos menos um caracter é letra. Não há espaços seguidos. Ponto é precedido
 			//por letra.
+private:
+	string nome;
+
+	//Método responsável por validação
+
+	void validar(string) throw (invalid_argument);
+	
+public:
+
+	//Métodos de acesso
+
+	void setNome(string) throw (invalid_argument);
+
+    string getNome() const {
+        return nome;
+    }
+	
 
 };
 
 class NumeroDeCartaoDeCredito{ //Formato XXXXXXXXXXXXXXXX onde X é dígito (0 – 9). Número válido
 								//segundo o algoritmo de Luhn (https://en.wikipedia.org/wiki/Luhn_algorithm).
+private:
+	int cartaoDeCredito;
+
+	//Método responsável por validação
+
+	void validar(int) throw (invalid_argument);
+
+public:
+
+	//Métodos de acesso
+
+	void setNumeroDeCartaoDeCredito(int) throw (invalid_argument);
+
+    int getNumeroDeCartaoDeCredito() const {
+        return cartaoDeCredito;
+    }
 
 };
 
 class NumeroDeContaCorrente{ //Formato XXXXXX onde X é dígito (0 – 9).
+private:
+	int contaCorrente;
+
+	//Método responsável por validação
+
+	void validar(int) throw (invalid_argument);
+
+public:
+
+	//Métodos de acesso
+
+	void setNumeroDeContaCorrente(int) throw (invalid_argument);
+
+    int getNumeroDeContaCorrente() const {
+        return contaCorrente;
+    }
 
 };
 
@@ -133,10 +244,42 @@ class Senha{ //Formato XXXXXXXX onde X pode ser um símbolo (! # $ % &), uma let
 				//maiúscula ou minúscula (A – Z a – z) ou um dígito (0 a 9). Não há caracters
 				//repetidos. Há, pelo menos, uma letra maiúscula, uma minúscula, um dígito e
 				//um símbolo.
+private:
+	string senha;
+
+	//Método responsável por validação
+
+	void validar(string) throw (invalid_argument);
+
+public:
+
+	//Métodos de acesso
+
+	void setSenha(string) throw (invalid_argument);
+
+    string getSenha() const {
+        return senha;
+    }
 
 };
 
 class TipoDeAcomodacao{ //Apartamento, Casa, Flat
+private:
+	string acomodacao;
+
+	//Método responsável por validação
+
+	void validar(string) throw (invalid_argument);
+
+public:
+
+	//Métodos de acesso
+
+	void setTipoDeAcomodacao(string) throw (invalid_argument);
+
+    string getTipoDeAcomodacao() const {
+        return acomodacao;
+    }
 
 };
 
