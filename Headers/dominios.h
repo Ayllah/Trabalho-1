@@ -71,8 +71,8 @@ public:
 class Diaria { //Valor de R$ 1,00 a R$ 10.000,00.
 private:
 	double preco;
-	const static double PRECO_MAXIMO = 10000.00;
-	const static double PRECO_MINIMO = 1.00;
+	const static int PRECO_MAXIMO = 10000;
+	const static int PRECO_MINIMO = 1;
 
 	//Método responsável por validação
 
