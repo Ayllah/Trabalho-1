@@ -10,7 +10,7 @@ void CapadicadeDeAcomodacao::validar(int capacidade) throw (invalid_argument){
 
  	//Lança exceção se o valor for maior ou menor que os limites definidos
 
-    if (capacidade > CAPACIDADE_MAXIMA && capacidade < CAPACIDADE_MINIMA){
+    if (capacidade > CAPACIDADE_MAXIMA || capacidade < CAPACIDADE_MINIMA){
         throw invalid_argument("Argumento invalido.");
     }
 }
@@ -25,7 +25,7 @@ void Diaria::validar(double preco) throw (invalid_argument){
 
  	//Lança exceção se o valor for maior ou menor que os limites definidos
 
-    if (preco > PRECO_MAXIMO && preco < PRECO_MINIMO){
+    if (preco > PRECO_MAXIMO || preco < PRECO_MINIMO){
         throw invalid_argument("Argumento invalido.");
     }
 }
