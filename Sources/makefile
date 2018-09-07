@@ -1,6 +1,6 @@
 IDIR = ../Headers
 CC = g++
-CFLAGS = -I$(IDIR) -g
+CFLAGS = -std=c++11 -I$(IDIR) -g
 
 ODIR = ../Objects
 LDIR = ../lib
