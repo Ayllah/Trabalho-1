@@ -10,6 +10,7 @@ int main()
 {
 	TUCapadicadeDeAcomodacao testeCapacidade;
 	TUDiaria testeDiaria;
+	TUEstado testeEstado;
 
     switch(testeCapacidade.run()){
         case TUCapadicadeDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
@@ -22,6 +23,13 @@ int main()
         case TUDiaria::SUCESSO: cout << "SUCESSO" << endl;
                                 break;
         case TUDiaria::FALHA  : cout << "FALHA" << endl;
+                                break;
+    }
+
+    switch(testeEstado.run()){
+        case TUEstado::SUCESSO: cout << "SUCESSO" << endl;
+                                break;
+        case TUEstado::FALHA  : cout << "FALHA" << endl;
                                 break;
     }
 

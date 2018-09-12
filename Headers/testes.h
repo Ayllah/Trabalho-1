@@ -69,10 +69,10 @@ public:
 
 };
 
-/*class TUEstado {
+class TUEstado {
 private:
-	const static string VALOR_VALIDO   = "DF";
-    const static string VALOR_INVALIDO = "AAA";
+	const string VALOR_VALIDO   = "DF";
+    const string VALOR_INVALIDO = "AAA";
 
     // Referência para o objeto a ser testado.
 
@@ -98,6 +98,6 @@ public:
 
     int run();
 
-};*/
+};
 
 #endif // TESTES_H_INCLUDED

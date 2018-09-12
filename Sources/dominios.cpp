@@ -37,17 +37,16 @@ void Diaria::setDiaria(double preco) throw (invalid_argument){
 
 
 void Estado::validar(string sigla) throw (invalid_argument){
-	int tamanho, i;
-	tamanho = sigla.size();
-	string vetor[] = {"AC", "AL", "AP", "AM," "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS","MG", 
+	int i;
+	string vetor[27] = {"AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS","MG", 
 						 "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"};
 	
 
 	//Lança exceção se as siglas não corresponderem com as designadas e se seus tamanhos forem maiores que
 	//o limite estabelecido
 
-	for(i = 0; i < 27; ++i){ //Mudar o 27 para nao ficar numeros magicos
-		if((sigla == vetor[i]) && (tamanho > TAMANHO_MAXIMO)){
+	for(i = 0; i < TAMANHO_VETOR; ++i){
+		if(sigla.compare(vetor[i]) != 0){
 			throw invalid_argument("Argumento invalido.");
 		}
 	}	

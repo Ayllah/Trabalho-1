@@ -136,7 +136,7 @@ class Estado { //AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR,
 				//PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO
 private:
 	string sigla;
-	const static int TAMANHO_MAXIMO = 2;
+	const static int TAMANHO_VETOR = 27;
 
 	//Método responsável por validação
 

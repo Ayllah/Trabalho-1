@@ -78,3 +78,42 @@ int TUDiaria::run(){
     tearDown();
     return resultado;
 }
+
+
+void TUEstado::setUp(){
+    sigla = new Estado();
+    resultado = SUCESSO;
+}
+
+void TUEstado::tearDown(){
+    delete sigla;
+}
+
+void TUEstado::testarCenarioSucesso(){
+    try{
+        sigla->setEstado(VALOR_VALIDO);
+        if (sigla->getEstado() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUEstado::testarCenarioFalha(){
+    try{
+        sigla->setEstado(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUEstado::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}
