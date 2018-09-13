@@ -166,3 +166,26 @@ void Nome::setNome(string nome) throw (invalid_argument){
     validar(nome);
     this->nome = nome;
 }
+
+void NumeroDeCartaoDeCredito::validar(string numCartaoDeCredito) throw (invalid_argument){
+    int verificadorTamanho;
+    int i;
+
+    verificadorTamanho = numCartaoDeCredito.size();
+
+    if(verificadorTamanho != TAMANHO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+        for (i = 0; i < verificadorTamanho; ++i){
+            if(!isdigit(numCartaoDeCredito[i])){
+                throw invalid_argument("Argumento invalido.");
+            }
+        }
+    }
+}
+
+void NumeroDeCartaoDeCredito::setNumeroDeCartaoDeCredito(string numCartaoDeCredito) throw (invalid_argument){
+    validar(numCartaoDeCredito);
+    this->numCartaoDeCredito = numCartaoDeCredito;
+}

@@ -202,20 +202,20 @@ public:
 class NumeroDeCartaoDeCredito { //Formato XXXXXXXXXXXXXXXX onde X é dígito (0 – 9). Número válido
 								//segundo o algoritmo de Luhn (https://en.wikipedia.org/wiki/Luhn_algorithm).
 private:
-	int cartaoDeCredito;
-
+	string numCartaoDeCredito;
+	const static int TAMANHO = 16;
 	//Método responsável por validação
 
-	void validar(int) throw (invalid_argument);
+	void validar(string) throw (invalid_argument);
 
 public:
 
 	//Métodos de acesso
 
-	void setNumeroDeCartaoDeCredito(int) throw (invalid_argument);
+	void setNumeroDeCartaoDeCredito(string) throw (invalid_argument);
 
-    int getNumeroDeCartaoDeCredito() const {
-        return cartaoDeCredito;
+    string getNumeroDeCartaoDeCredito() const {
+        return numCartaoDeCredito;
     }
 
 };

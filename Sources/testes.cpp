@@ -269,3 +269,41 @@ int TUNome::run(){
     tearDown();
     return resultado;
 }
+
+void TUNumeroDeCartaoDeCredito::setUp(){
+    numCartaoDeCredito = new NumeroDeCartaoDeCredito;
+    resultado = SUCESSO;
+}
+
+void TUNumeroDeCartaoDeCredito::tearDown(){
+    delete numCartaoDeCredito;
+}
+
+void TUNumeroDeCartaoDeCredito::testarCenarioSucesso(){
+    try{
+        numCartaoDeCredito->setNumeroDeCartaoDeCredito(VALOR_VALIDO);
+        if (numCartaoDeCredito->getNumeroDeCartaoDeCredito() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUNumeroDeCartaoDeCredito::testarCenarioFalha(){
+    try{
+        numCartaoDeCredito->setNumeroDeCartaoDeCredito(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUNumeroDeCartaoDeCredito::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}

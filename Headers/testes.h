@@ -219,4 +219,32 @@ public:
     int run();
 };
 
+class TUNumeroDeCartaoDeCredito{
+private:
+    const string VALOR_VALIDO = "3245678945562001";
+    const string VALOR_INVALIDO = "9OO012347865";
+
+    // Referência para o objeto a ser testado.
+
+    NumeroDeCartaoDeCredito *numCartaoDeCredito;
+
+    // Resultado do teste.
+
+    int resultado;
+
+    // Declarações de métodos.
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    // Definições de constantes para reportar resultado do teste.
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+};
 #endif // TESTES_H_INCLUDED
