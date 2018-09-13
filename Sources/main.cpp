@@ -8,9 +8,17 @@ using namespace std;
 
 int main()
 {
-	TUCapadicadeDeAcomodacao testeCapacidade;
+	TUAgencia testeAgencia;
+    TUCapadicadeDeAcomodacao testeCapacidade;
 	TUDiaria testeDiaria;
 	TUEstado testeEstado;
+
+    switch(testeAgencia.run()){
+        case TUAgencia::SUCESSO: cout << "SUCESSO" << endl;
+                                                break;
+        case TUAgencia::FALHA: cout << "FALHA" << endl;
+                                                break;
+    }
 
     switch(testeCapacidade.run()){
         case TUCapadicadeDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;

@@ -3,8 +3,32 @@
 #include <string>
 #include <cstring>
 #include <vector>
+#include <locale>
 
 using namespace std;
+
+void Agencia::validar(string agencia) throw (invalid_argument){
+	int verificador_tamanho;
+	int i;
+	//Lança exceção se o tamanho da string agencia for diferente do tamanho esperado
+	// ou se algum caracter da string apresentar valor diferente de 0-9
+
+	verificador_tamanho = agencia.size();
+
+	if(verificador_tamanho != TAMANHO){
+		throw invalid_argument("Argumento invalido.");
+	}
+	else{//testar a validade de cada digito
+		for (i = 0; i < TAMANHO; ++i)
+			if(!isdigit(agencia[i]))
+				throw invalid_argument("Argumento invalido.");
+	}
+}
+
+void Agencia::setAgencia(string agencia) throw (invalid_argument){
+	validar(agencia);
+	this->agencia = agencia;
+}
 
 void CapadicadeDeAcomodacao::validar(int capacidade) throw (invalid_argument){
 

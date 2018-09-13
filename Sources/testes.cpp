@@ -2,6 +2,44 @@
 
 // Definições de métodos.
 
+void TUAgencia::setUp(){
+    agencia = new Agencia();
+    resultado = SUCESSO;
+}
+
+void TUAgencia::tearDown(){
+    delete agencia;
+}
+
+void TUAgencia::testarCenarioSucesso(){
+    try{
+        agencia->setAgencia(VALOR_VALIDO);
+        if (agencia->getAgencia() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUAgencia::testarCenarioFalha(){
+    try{
+        agencia->setAgencia(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUAgencia::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}
+
 void TUCapadicadeDeAcomodacao::setUp(){
     capacidade = new CapadicadeDeAcomodacao();
     resultado = SUCESSO;
