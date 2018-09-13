@@ -193,3 +193,41 @@ int TUEstado::run(){
     tearDown();
     return resultado;
 }
+
+void TUIdentificador::setUp(){
+    identificador = new Identificador();
+    resultado = SUCESSO;
+}
+
+void TUIdentificador::tearDown(){
+    delete identificador;
+}
+
+void TUIdentificador::testarCenarioSucesso(){
+    try{
+        identificador->setIdentificador(VALOR_VALIDO);
+        if (identificador->getIdentificador() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUIdentificador::testarCenarioFalha(){
+    try{
+        identificador->setIdentificador(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUIdentificador::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}

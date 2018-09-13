@@ -158,7 +158,7 @@ public:
 class Identificador { //Formato XXXXX onde X é letra minúscula (a - z).
 private:
 	string identificador;
-
+	const static int TAMANHO = 5;
 	//Método responsável por validação
 
 	void validar(string) throw (invalid_argument);

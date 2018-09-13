@@ -107,5 +107,25 @@ void Estado::setEstado(string sigla) throw (invalid_argument){
     this->sigla = sigla;
 }
 
+void Identificador::validar(string identificador) throw (invalid_argument){
+    int verificadorTamanho;
+    int i;
 
+    verificadorTamanho = identificador.size();
 
+    if (verificadorTamanho != TAMANHO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+        for (i=0; i<TAMANHO; ++i){
+            if(!islower(identificador[i])){
+                throw invalid_argument("Argumento invalido.");
+            }
+        }
+    }
+}
+
+void Identificador::setIdentificador(string identificador) throw (invalid_argument){
+    validar(identificador);
+    this->identificador = identificador;
+}

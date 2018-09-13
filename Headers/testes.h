@@ -161,4 +161,33 @@ public:
 
 };
 
+class TUIdentificador{
+private:
+    const string VALOR_VALIDO = "pedro";
+    const string VALOR_INVALIDO = "P3drO0";
+
+    // Referência para o objeto a ser testado.
+
+    Identificador *identificador;
+
+    // Resultado do teste.
+
+    int resultado;
+
+    // Declarações de métodos.
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    // Definições de constantes para reportar resultado do teste.
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+};
+
 #endif // TESTES_H_INCLUDED
