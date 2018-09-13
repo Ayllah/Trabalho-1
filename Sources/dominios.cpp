@@ -129,3 +129,40 @@ void Identificador::setIdentificador(string identificador) throw (invalid_argume
     validar(identificador);
     this->identificador = identificador;
 }
+
+void Nome::validar(string nome) throw (invalid_argument){
+    int verificadorTamanho;
+    int i;
+
+    verificadorTamanho = nome.size();
+
+    if(verificadorTamanho > TAMANHO_MAXIMO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+        if(nome[0] == '.'){
+            throw invalid_argument("Argumento invalido.");
+        }
+
+        for(i = 0; i < verificadorTamanho; ++i){
+            //verificação sequência
+            if(!isalpha(nome[i]) && nome[i] != ' ' && nome[i] != '.'){
+                throw invalid_argument("Argumento invalido.");
+            }
+            //verificação de adjacência
+            if(i > 0){
+                if(nome[i] == '.' && !isalpha(nome[i-1])){//ponto precedido por letra
+                    throw invalid_argument("Argumento invalido.");
+                }
+                if(nome[i-1] == ' ' && nome[i] == ' '){
+                    throw invalid_argument("Argumento invalido.");
+                }
+            }
+        }
+    }
+}
+
+void Nome::setNome(string nome) throw (invalid_argument){
+    validar(nome);
+    this->nome = nome;
+}

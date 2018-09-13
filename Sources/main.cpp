@@ -14,6 +14,7 @@ int main()
 	TUDiaria testeDiaria;
 	TUEstado testeEstado;
     TUIdentificador testeIdentificador;
+    TUNome testeNome;
 
     switch(testeAgencia.run()){
         case TUAgencia::SUCESSO: cout << "SUCESSO" << endl;
@@ -54,6 +55,13 @@ int main()
         case TUIdentificador::SUCESSO: cout << "SUCESSO" << endl;
                                                 break;
         case TUIdentificador::FALHA: cout << "FALHA" << endl;
+                                                break;
+    }
+
+    switch(testeNome.run()){
+        case TUNome::SUCESSO: cout << "SUCESSO" << endl;
+                                                break;
+        case TUNome::FALHA: cout << "FALHA" << endl;
                                                 break;
     }
 

@@ -231,3 +231,41 @@ int TUIdentificador::run(){
     tearDown();
     return resultado;
 }
+
+void TUNome::setUp(){
+    nome = new Nome();
+    resultado = SUCESSO;
+}
+
+void TUNome::tearDown(){
+    delete nome;
+}
+
+void TUNome::testarCenarioSucesso(){
+    try{
+        nome->setNome(VALOR_VALIDO);
+        if (nome->getNome() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUNome::testarCenarioFalha(){
+    try{
+        nome->setNome(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUNome::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}

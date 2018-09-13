@@ -181,7 +181,7 @@ class Nome { //Formato XXXXXXXXXXXXXXX . Cada X pode ser letra, espaço ou ponto
 			//por letra.
 private:
 	string nome;
-
+	const static int TAMANHO_MAXIMO = 15;
 	//Método responsável por validação
 
 	void validar(string) throw (invalid_argument);
