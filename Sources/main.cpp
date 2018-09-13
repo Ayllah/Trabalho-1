@@ -19,7 +19,7 @@ int main()
         case TUAgencia::FALHA: cout << "FALHA" << endl;
                                                 break;
     }
-
+    //teste
     switch(testeCapacidade.run()){
         case TUCapadicadeDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
                                 				break;
