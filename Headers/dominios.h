@@ -18,7 +18,7 @@ private:
 public:
 
 	//Métodos de acesso
-	//adicionei
+	
 	void setAgencia(string) throw (invalid_argument);
 
     string getAgencia() const {

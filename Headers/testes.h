@@ -61,7 +61,7 @@ private:
 public:
 
 	// Definições de constantes para reportar resultado do teste
-    //adicionei
+    
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
 
