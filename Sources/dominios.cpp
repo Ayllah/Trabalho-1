@@ -19,15 +19,40 @@ void Agencia::validar(string agencia) throw (invalid_argument){
 		throw invalid_argument("Argumento invalido.");
 	}
 	else{//testar a validade de cada digito
-		for (i = 0; i < TAMANHO; ++i)
-			if(!isdigit(agencia[i]))
+		for (i = 0; i < TAMANHO; ++i){
+			if(!isdigit(agencia[i])){
 				throw invalid_argument("Argumento invalido.");
+            }
+        }
 	}
 }
 
 void Agencia::setAgencia(string agencia) throw (invalid_argument){
 	validar(agencia);
 	this->agencia = agencia;
+}
+
+void Banco::validar(string banco) throw (invalid_argument){
+    int verificadorTamanho;
+    int i;
+
+    verificadorTamanho = banco.size();
+
+    if (verificadorTamanho != TAMANHO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+		for (i = 0; i < TAMANHO; ++i){
+			if(!isdigit(banco[i])){
+				throw invalid_argument("Argumento invalido.");
+            }
+        }    
+    }
+}
+
+void Banco::setBanco(string banco) throw (invalid_argument){
+    validar(banco);
+    this->banco = banco;
 }
 
 void CapadicadeDeAcomodacao::validar(int capacidade) throw (invalid_argument){

@@ -29,19 +29,19 @@ public:
 
 class Banco {
 private:
-	int banco;
-
+	string banco;
+	const static int TAMANHO = 3;
 	//Método responsável por validação
 
-	void validar(int) throw (invalid_argument);
+	void validar(string) throw (invalid_argument);
 
 public:
 
 	//Métodos de acesso
 
-	void setBanco(int) throw (invalid_argument);
+	void setBanco(string) throw (invalid_argument);
 
-    int getBanco() const {
+    string getBanco() const {
         return banco;
     }
 

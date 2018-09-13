@@ -40,6 +40,44 @@ int TUAgencia::run(){
     return resultado;
 }
 
+void TUBanco::setUp(){
+    banco = new Banco();
+    resultado = SUCESSO;
+}
+
+void TUBanco::tearDown(){
+    delete banco;
+}
+
+void TUBanco::testarCenarioSucesso(){
+    try{
+        banco->setBanco(VALOR_VALIDO);
+        if(banco->getBanco() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUBanco::testarCenarioFalha(){
+    try{
+        banco->setBanco(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUBanco::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}
+
 void TUCapadicadeDeAcomodacao::setUp(){
     capacidade = new CapadicadeDeAcomodacao();
     resultado = SUCESSO;

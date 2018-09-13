@@ -9,6 +9,7 @@ using namespace std;
 int main()
 {
 	TUAgencia testeAgencia;
+    TUBanco testeBanco;
     TUCapadicadeDeAcomodacao testeCapacidade;
 	TUDiaria testeDiaria;
 	TUEstado testeEstado;
@@ -20,6 +21,13 @@ int main()
                                                 break;
     }
     
+    switch(testeBanco.run()){
+        case TUBanco::SUCESSO: cout << "SUCESSO" << endl;
+                                                break;
+        case TUBanco::FALHA: cout << "FALHA" << endl;
+                                                break;
+    }
+
     switch(testeCapacidade.run()){
         case TUCapadicadeDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
                                 				break;
