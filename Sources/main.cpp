@@ -12,6 +12,7 @@ int main()
     TUBanco testeBanco;
     TUCapadicadeDeAcomodacao testeCapacidade;
 	TUDiaria testeDiaria;
+    TUDataDeValidade testeDataDeValidade;
 	TUEstado testeEstado;
     TUIdentificador testeIdentificador;
     TUNome testeNome;
@@ -43,6 +44,13 @@ int main()
                                 break;
         case TUDiaria::FALHA  : cout << "FALHA" << endl;
                                 break;
+    }
+
+    switch(testeDataDeValidade.run()){
+        case TUDataDeValidade::SUCESSO: cout << "SUCESSO" << endl;
+                                                break;
+        case TUDataDeValidade::FALHA: cout << "FALHA" << endl;
+                                                break;
     }
 
     switch(testeEstado.run()){

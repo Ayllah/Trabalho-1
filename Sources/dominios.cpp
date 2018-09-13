@@ -1,8 +1,10 @@
 #include "dominios.h"
 
+#include <iostream>//comentar depois
 #include <string>
 #include <cstring>
 #include <vector>
+#include <cstdlib>
 #include <locale>
 
 using namespace std;
@@ -84,6 +86,37 @@ void Diaria::setDiaria(double preco) throw (invalid_argument){
     this->preco = preco;
 }
 
+void DataDeValidade::validar(string validade) throw (invalid_argument){
+    int verificadorTamanho, verificadorMes, verificadorAno;
+    int i;
+    char mes[TAMANHO_PADRAO_MES],ano[TAMANHO_PADRAO_ANO];
+
+    verificadorTamanho = validade.size();
+    validade.copy(mes,POSICAO_FINAL_MES + 1,POSICAO_INICIAL_MES);
+    validade.copy(ano,POSICAO_FINAL_ANO,POSICAO_INICIAL_ANO);
+    //cout << "mes " << mes << endl;
+    //cout << "ano " << ano << endl;
+
+    if(verificadorTamanho != TAMANHO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else if(validade[POSICAO_SEPARADOR] != '/'){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+        verificadorMes = atoi(mes);
+        verificadorAno = atoi(ano);
+        if(verificadorMes < MES_MINIMO || verificadorMes > MES_MAXIMO ||
+           verificadorAno < ANO_MINIMO || verificadorAno > ANO_MAXIMO){
+            throw invalid_argument("Argumento invalido.");
+        }
+    }
+}
+
+void DataDeValidade::setDataDeValidade(string validade) throw (invalid_argument){
+    validar(validade);
+    this->validade = validade;
+}
 
 void Estado::validar(string sigla) throw (invalid_argument){
 	int i;
@@ -183,6 +216,7 @@ void NumeroDeCartaoDeCredito::validar(string numCartaoDeCredito) throw (invalid_
             }
         }
     }
+    //algoritmo de Luhn
 }
 
 void NumeroDeCartaoDeCredito::setNumeroDeCartaoDeCredito(string numCartaoDeCredito) throw (invalid_argument){

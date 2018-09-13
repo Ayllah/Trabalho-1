@@ -114,19 +114,31 @@ public:
 
 class DataDeValidade { //Formato MM/AA. MM é número de 01 a 12. AA é número de 00 a 99.
 private:
-	int validade;
+	string validade;
+	const static int TAMANHO = 5;
+	const static int TAMANHO_PADRAO_MES = 2;
+	const static int TAMANHO_PADRAO_ANO = 2;
+	const static int POSICAO_INICIAL_MES = 0;
+	const static int POSICAO_FINAL_MES = 1;//Pq 2?
+	const static int POSICAO_INICIAL_ANO = 3;
+	const static int POSICAO_FINAL_ANO = 4;
+	const static int POSICAO_SEPARADOR = 2;
 
+	const static int MES_MINIMO = 1;
+	const static int MES_MAXIMO = 12;
+	const static int ANO_MINIMO = 0;
+	const static int ANO_MAXIMO = 99;
 	//Método responsável por validação
 
-	void validar(int) throw (invalid_argument);
+	void validar(string) throw (invalid_argument);
 
 public:
 
 	//Métodos de acesso
 
-	void setDataDeValidade(int) throw (invalid_argument);
+	void setDataDeValidade(string) throw (invalid_argument);
 
-    int getDataDeValidade() const {
+    string getDataDeValidade() const {
         return validade;
     }
 	

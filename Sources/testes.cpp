@@ -155,6 +155,43 @@ int TUDiaria::run(){
     return resultado;
 }
 
+void TUDataDeValidade::setUp(){
+    dataDeValidade = new DataDeValidade();
+    resultado = SUCESSO;
+}
+
+void TUDataDeValidade::tearDown(){
+    delete dataDeValidade;
+}
+
+void TUDataDeValidade::testarCenarioSucesso(){
+    try{
+        dataDeValidade->setDataDeValidade(VALOR_VALIDO);
+        if (dataDeValidade->getDataDeValidade() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUDataDeValidade::testarCenarioFalha(){
+    try{
+        dataDeValidade->setDataDeValidade(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUDataDeValidade::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}
 
 void TUEstado::setUp(){
     sigla = new Estado();

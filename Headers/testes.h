@@ -130,6 +130,37 @@ public:
 
 };
 
+class TUDataDeValidade {
+private:
+	const string VALOR_VALIDO   = "03/23";
+    const string VALOR_INVALIDO = "11/-3";
+
+    // Referência para o objeto a ser testado.
+
+    DataDeValidade *dataDeValidade;
+
+    // Resultado do teste.
+
+    int resultado;
+
+    // Declarações de métodos.
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+
+	// Definições de constantes para reportar resultado do teste.
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+
+};
+
 class TUEstado {
 private:
 	const string VALOR_VALIDO   = "DF";
