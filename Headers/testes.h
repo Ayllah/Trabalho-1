@@ -7,6 +7,37 @@
 
 using namespace std;
 
+class TUAgencia {
+private:
+    const string VALOR_VALIDO = "00349";
+    const string VALOR_INVALIDO = "a236734";//a236734
+
+    // Referência para o objeto a ser testado.
+
+    Agencia *agencia;
+
+    // Resultado do teste.
+
+    int resultado;
+
+    // Declarações de métodos.
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+
+	// Definições de constantes para reportar resultado do teste.
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+
+};
+
 class TUCapadicadeDeAcomodacao {
 private:
 	const static int VALOR_VALIDO   = 6;
@@ -29,8 +60,8 @@ private:
 
 public:
 
-	// Definições de constantes para reportar resultado do teste.
-
+	// Definições de constantes para reportar resultado do teste
+    //adicionei
     const static int SUCESSO =  0;
     const static int FALHA   = -1;
 

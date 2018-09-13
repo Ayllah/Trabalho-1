@@ -8,14 +8,14 @@
 using namespace std;
 
 void Agencia::validar(string agencia) throw (invalid_argument){
-	int verificador_tamanho;
+	int verificadorTamanho;
 	int i;
 	//Lança exceção se o tamanho da string agencia for diferente do tamanho esperado
 	// ou se algum caracter da string apresentar valor diferente de 0-9
 
-	verificador_tamanho = agencia.size();
+	verificadorTamanho = agencia.size();
 
-	if(verificador_tamanho != TAMANHO){
+	if(verificadorTamanho != TAMANHO){
 		throw invalid_argument("Argumento invalido.");
 	}
 	else{//testar a validade de cada digito

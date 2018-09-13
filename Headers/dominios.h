@@ -8,26 +8,26 @@ using namespace std;
 
 class Agencia { //Formato XXXXX onde X é dígito (0 - 9).
 private:
-	int agencia;
-	const static int TAMANHO_MAXIMO = 5;
+	string agencia;
+	const static int TAMANHO = 5;
 
 	//Método responsável por validação
 
-	void validar(int) throw (invalid_argument);
+	void validar(string) throw (invalid_argument);
 
 public:
 
 	//Métodos de acesso
+	//adicionei
+	void setAgencia(string) throw (invalid_argument);
 
-	void setAgencia(int) throw (invalid_argument);
-
-    int getAgencia() const {
+    string getAgencia() const {
         return agencia;
     }
 
 };
 
-class Banco { //Formato XXX onde X é dígito (0 - 9).
+class Banco {
 private:
 	int banco;
 
