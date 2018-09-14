@@ -94,19 +94,31 @@ class Data { //Formato DD/MMM/AAAA. DD é número de 01 e 31. MMM é jan,
 			//fev, mar, abr, mai, jun, jul, ago, set, out, nov ou dez. AAAA é número de
 			//2000 a 2099. A data considera anos bissextos.
 private:
-	int data;
-
+	string data;
+	const static int TAMANHO = 11;
+	const static int TAMANHO_PADRAO_DIA = 2;
+	const static int TAMANHO_PADRAO_MES = 3;
+	const static int TAMANHO_PADRAO_ANO = 4;
+	const static int POSICAO_DIA = 0;
+	const static int POSICAO_SEPARADOR_DIA_MES = 2;
+	const static int POSICAO_SEPARADOR_MES_ANO = 6;
+	const static int DIA_MINIMO = 1;
+	const static int DIA_MAXIMO = 31;
+	const static int NUMERO_MESES = 12;
+	const static int ANO_MINIMO = 2000;
+	const static int ANO_MAXIMO = 2099;
 	//Método responsável por validação
 
-	void validar(int) throw (invalid_argument);
+	bool isBissextile(int) throw (invalid_argument);
+	void validar(string) throw (invalid_argument);
 
 public:
 
 	//Métodos de acesso
 
-	void setData(int) throw (invalid_argument);
+	void setData(string) throw (invalid_argument);
 
-    int getData() const {
+    string getData() const {
         return data;
     }
 	

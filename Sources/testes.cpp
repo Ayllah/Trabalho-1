@@ -116,7 +116,6 @@ int TUCapadicadeDeAcomodacao::run(){
     return resultado;
 }
 
-
 void TUDiaria::setUp(){
     preco = new Diaria();
     resultado = SUCESSO;
@@ -148,6 +147,44 @@ void TUDiaria::testarCenarioFalha(){
 }
 
 int TUDiaria::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}
+
+void TUData::setUp(){
+    data = new Data();
+    resultado = SUCESSO;
+}
+
+void TUData::tearDown(){
+    delete data;
+}
+
+void TUData::testarCenarioSucesso(){
+    try{
+        data->setData(VALOR_VALIDO);
+        if (data->getData() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUData::testarCenarioFalha(){
+    try{
+        data->setData(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUData::run(){
     setUp();
     testarCenarioSucesso();
     testarCenarioFalha();

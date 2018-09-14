@@ -40,12 +40,12 @@ void Banco::validar(string banco) throw (invalid_argument){
 
     verificadorTamanho = banco.size();
 
-    if (verificadorTamanho != TAMANHO){
+    if ( verificadorTamanho != TAMANHO ){
         throw invalid_argument("Argumento invalido.");
     }
     else{
 		for (i = 0; i < TAMANHO; ++i){
-			if(!isdigit(banco[i])){
+			if( !isdigit(banco[i]) ){
 				throw invalid_argument("Argumento invalido.");
             }
         }    
@@ -86,6 +86,84 @@ void Diaria::setDiaria(double preco) throw (invalid_argument){
     this->preco = preco;
 }
 
+bool Data::isBissextile(int ano) throw (invalid_argument){
+    if((ano % 100 == 0) && (ano % 400 != 0))
+        return 0;
+    else if (ano % 4 == 0)
+        return 1;
+}
+
+void Data::validar(string data) throw (invalid_argument){
+    int verificadorTamanho;
+    int isMes = 0;
+    int i;
+    char dia[TAMANHO_PADRAO_DIA];
+    char mes[TAMANHO_PADRAO_MES];
+    string nomeMes;
+    char ano[TAMANHO_PADRAO_ANO];
+    string meses[NUMERO_MESES] = {"jan", "fev", "mar", "abr",
+                        "mai", "jun", "jul", "ago",
+                        "set", "out", "nov", "dez"};
+    int numeroDiasDoMes[NUMERO_MESES] = {31, 29, 31, 30,
+                                         31, 30, 31, 31,
+                                         30, 31, 30, 31};
+
+    verificadorTamanho = data.size();
+    
+    if( (verificadorTamanho != TAMANHO) ){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else if( data[POSICAO_SEPARADOR_DIA_MES] != '/' &&
+             data[POSICAO_SEPARADOR_MES_ANO] != '/'){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+        data.copy(dia, TAMANHO_PADRAO_DIA, POSICAO_DIA);
+        data.copy(mes, TAMANHO_PADRAO_MES, POSICAO_SEPARADOR_DIA_MES + 1);
+        data.copy(ano, TAMANHO_PADRAO_ANO, POSICAO_SEPARADOR_MES_ANO + 1);
+        nomeMes = mes;
+
+        if(atoi(dia) < DIA_MINIMO || atoi(dia) > DIA_MAXIMO){
+            throw invalid_argument("Argumento invalido.");
+        }
+        else if(atoi(ano) < ANO_MINIMO || atoi(ano) > ANO_MAXIMO){
+            throw invalid_argument("Argumento invalido.");
+        }
+        else{
+            for(i = 0; i < TAMANHO_PADRAO_MES; ++i){
+                if(!isalpha(nomeMes[i])){
+                    throw invalid_argument("Argumento invalido.");
+                }
+                else{
+                    nomeMes[i] = tolower(nomeMes[i]);
+                }
+            }
+
+            for(i = 0; i < NUMERO_MESES; ++i){
+                if(nomeMes.compare(meses[i]) == 0){
+                    isMes = 1;
+                    break;
+                }
+            }
+
+            if(!isMes){
+                throw invalid_argument("Argumento invalido.");
+            }
+            else if(atoi(dia) > numeroDiasDoMes[i]){
+                throw invalid_argument("Argumento invalido.");
+            }
+            else if(!isBissextile(atoi(ano)) && !nomeMes.compare("fev") && (atoi(dia) > 28)){
+                throw invalid_argument("Argumento invalido.");
+            }
+        }
+    }
+}
+
+void Data::setData(string data) throw (invalid_argument){
+    validar(data);
+    this->data = data;
+}
+
 void DataDeValidade::validar(string validade) throw (invalid_argument){
     int verificadorTamanho, verificadorMes, verificadorAno;
     int i;
@@ -94,8 +172,6 @@ void DataDeValidade::validar(string validade) throw (invalid_argument){
     verificadorTamanho = validade.size();
     validade.copy(mes,POSICAO_FINAL_MES + 1,POSICAO_INICIAL_MES);
     validade.copy(ano,POSICAO_FINAL_ANO,POSICAO_INICIAL_ANO);
-    //cout << "mes " << mes << endl;
-    //cout << "ano " << ano << endl;
 
     if(verificadorTamanho != TAMANHO){
         throw invalid_argument("Argumento invalido.");
@@ -124,18 +200,17 @@ void Estado::validar(string sigla) throw (invalid_argument){
     int isEstado = 0;
 	string vetor[27] = {"AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS","MG", 
 						 "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"};
-
+    
 	//Lança exceção se as siglas não corresponderem com as designadas e se seus tamanhos forem maiores que
 	//o limite estabelecido
 
-    
     verificadorTamanho = sigla.size();
 
     if(verificadorTamanho != TAMANHO_PADRAO_UF){
         throw invalid_argument("Argumento invalido.");
     }
     else{
-        for(i = 0; i<TAMANHO_PADRAO_UF; ++i){
+        for(i = 0; i < TAMANHO_PADRAO_UF; ++i){
             if(!isalpha(sigla[i])){
                 throw invalid_argument("Argumento invalido.");
             }
@@ -150,6 +225,7 @@ void Estado::validar(string sigla) throw (invalid_argument){
                 break;
             }
         }
+
         if(!isEstado){
             throw invalid_argument("Argumento invalido.");
         }

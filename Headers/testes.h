@@ -130,6 +130,37 @@ public:
 
 };
 
+class TUData {
+private:
+	const string VALOR_VALIDO   = "29/fev/2016";
+    const string VALOR_INVALIDO = "29/fev/2018";//valida?
+
+    // Referência para o objeto a ser testado.
+
+    Data *data;
+
+    // Resultado do teste.
+
+    int resultado;
+
+    // Declarações de métodos.
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+
+	// Definições de constantes para reportar resultado do teste.
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+
+};
+
 class TUDataDeValidade {
 private:
 	const string VALOR_VALIDO   = "03/23";
