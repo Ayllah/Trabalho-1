@@ -252,7 +252,7 @@ public:
 
 class TUNumeroDeCartaoDeCredito{
 private:
-    const string VALOR_VALIDO = "3245678945562001";
+    const string VALOR_VALIDO = "5223367278781011";//3245678945562001
     const string VALOR_INVALIDO = "9OO012347865";
 
     // Referência para o objeto a ser testado.

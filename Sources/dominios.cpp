@@ -202,6 +202,7 @@ void Nome::setNome(string nome) throw (invalid_argument){
 
 void NumeroDeCartaoDeCredito::validar(string numCartaoDeCredito) throw (invalid_argument){
     int verificadorTamanho;
+    int isOnlyDigit = 1;
     int i;
 
     verificadorTamanho = numCartaoDeCredito.size();
@@ -212,11 +213,38 @@ void NumeroDeCartaoDeCredito::validar(string numCartaoDeCredito) throw (invalid_
     else{
         for (i = 0; i < verificadorTamanho; ++i){
             if(!isdigit(numCartaoDeCredito[i])){
+                isOnlyDigit = 0;
+                throw invalid_argument("Argumento invalido.");
+            }
+        }
+        if(isOnlyDigit){
+            if(!checkLuhn(numCartaoDeCredito)){
                 throw invalid_argument("Argumento invalido.");
             }
         }
     }
-    //algoritmo de Luhn
+}
+
+bool NumeroDeCartaoDeCredito::checkLuhn(string numCartaoDeCredito) throw (invalid_argument){
+    int somatorio = 0;
+    int numeroDigitos = numCartaoDeCredito.size();
+    int numeroParidade = (numeroDigitos - 1) % 2;
+    int digito;
+    char cDigito[2] = "\0";
+    int i;
+
+    for (i = numeroDigitos; i > 0; i--){
+        cDigito[0] = numCartaoDeCredito[i - 1];
+        digito = atoi(cDigito);
+        
+        if ( numeroParidade == i % 2){
+            digito = digito * 2;
+        }
+
+        somatorio += digito/10;
+        somatorio += digito%10;
+    }
+    return 0 == somatorio % 10;
 }
 
 void NumeroDeCartaoDeCredito::setNumeroDeCartaoDeCredito(string numCartaoDeCredito) throw (invalid_argument){

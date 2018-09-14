@@ -219,7 +219,7 @@ private:
 	//Método responsável por validação
 
 	void validar(string) throw (invalid_argument);
-
+	bool checkLuhn(string) throw (invalid_argument);
 public:
 
 	//Métodos de acesso
