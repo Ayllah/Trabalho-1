@@ -163,8 +163,8 @@ public:
 
 class TUEstado {
 private:
-	const string VALOR_VALIDO   = "DF";
-    const string VALOR_INVALIDO = "AAA";
+	const string VALOR_VALIDO   = "Df";
+    const string VALOR_INVALIDO = "AAa";
 
     // Referência para o objeto a ser testado.
 
@@ -252,7 +252,7 @@ public:
 
 class TUNumeroDeCartaoDeCredito{
 private:
-    const string VALOR_VALIDO = "5223367278781011";//3245678945562001
+    const string VALOR_VALIDO = "5223367278781011";
     const string VALOR_INVALIDO = "9OO012347865";
 
     // Referência para o objeto a ser testado.

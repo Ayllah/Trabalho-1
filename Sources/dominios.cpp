@@ -120,18 +120,40 @@ void DataDeValidade::setDataDeValidade(string validade) throw (invalid_argument)
 
 void Estado::validar(string sigla) throw (invalid_argument){
 	int i;
+    int verificadorTamanho;
+    int isEstado = 0;
 	string vetor[27] = {"AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS","MG", 
 						 "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"};
-	
 
 	//Lança exceção se as siglas não corresponderem com as designadas e se seus tamanhos forem maiores que
 	//o limite estabelecido
 
-	for(i = 0; i < TAMANHO_VETOR; ++i){
-		if(sigla.compare(vetor[i]) != 0){
-			throw invalid_argument("Argumento invalido.");
-		}
-	}	
+    
+    verificadorTamanho = sigla.size();
+
+    if(verificadorTamanho != TAMANHO_PADRAO_UF){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+        for(i = 0; i<TAMANHO_PADRAO_UF; ++i){
+            if(!isalpha(sigla[i])){
+                throw invalid_argument("Argumento invalido.");
+            }
+            else{
+                sigla[i] = toupper(sigla[i]);
+            }
+        }
+        
+        for(i = 0; i < TAMANHO_VETOR; ++i){
+            if(sigla.compare(vetor[i]) == 0){
+                isEstado = 1;
+                break;
+            }
+        }
+        if(!isEstado){
+            throw invalid_argument("Argumento invalido.");
+        }
+    }
 
 }
 
