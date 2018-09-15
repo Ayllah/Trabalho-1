@@ -109,6 +109,7 @@ private:
 	const static int ANO_MAXIMO = 2099;
 	//Método responsável por validação
 
+	bool isMonth(string nomeMes, string *meses);
 	bool isBissextile(int) throw (invalid_argument);
 	void validar(string) throw (invalid_argument);
 

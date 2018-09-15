@@ -86,6 +86,16 @@ void Diaria::setDiaria(double preco) throw (invalid_argument){
     this->preco = preco;
 }
 
+bool Data::isMonth(string nomeMes, string *meses){
+    bool isMes = 0;
+    for(int i = 0; i < NUMERO_MESES; ++i){
+        if(nomeMes.compare(meses[i]) == 0){
+            isMes = 1;
+            break;
+        }
+    }
+}
+
 bool Data::isBissextile(int ano) throw (invalid_argument){
     if((ano % 100 == 0) && (ano % 400 != 0))
         return 0;
@@ -95,15 +105,15 @@ bool Data::isBissextile(int ano) throw (invalid_argument){
 
 void Data::validar(string data) throw (invalid_argument){
     int verificadorTamanho;
-    int isMes = 0;
+    int isMes;
     int i;
     char dia[TAMANHO_PADRAO_DIA];
     char mes[TAMANHO_PADRAO_MES];
     string nomeMes;
     char ano[TAMANHO_PADRAO_ANO];
     string meses[NUMERO_MESES] = {"jan", "fev", "mar", "abr",
-                        "mai", "jun", "jul", "ago",
-                        "set", "out", "nov", "dez"};
+                                  "mai", "jun", "jul", "ago",
+                                  "set", "out", "nov", "dez"};
     int numeroDiasDoMes[NUMERO_MESES] = {31, 29, 31, 30,
                                          31, 30, 31, 31,
                                          30, 31, 30, 31};
@@ -120,7 +130,7 @@ void Data::validar(string data) throw (invalid_argument){
     else{
         data.copy(dia, TAMANHO_PADRAO_DIA, POSICAO_DIA);
         data.copy(mes, TAMANHO_PADRAO_MES, POSICAO_SEPARADOR_DIA_MES + 1);
-        data.copy(ano, TAMANHO_PADRAO_ANO, POSICAO_SEPARADOR_MES_ANO + 1);
+        data.copy(ano, TAMANHO_PADRAO_ANO, POSICAO_SEPARADOR_MES_ANO + 1); 
         nomeMes = mes;
 
         if(atoi(dia) < DIA_MINIMO || atoi(dia) > DIA_MAXIMO){
@@ -139,12 +149,7 @@ void Data::validar(string data) throw (invalid_argument){
                 }
             }
 
-            for(i = 0; i < NUMERO_MESES; ++i){
-                if(nomeMes.compare(meses[i]) == 0){
-                    isMes = 1;
-                    break;
-                }
-            }
+            isMes = isMonth(nomeMes, &meses[0]);
 
             if(!isMes){
                 throw invalid_argument("Argumento invalido.");
