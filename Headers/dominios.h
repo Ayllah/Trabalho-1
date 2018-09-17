@@ -47,7 +47,7 @@ public:
 
 };
 
-class CapadicadeDeAcomodacao { //Valor de 1 a 9.
+class CapacidadeDeAcomodacao { //Valor de 1 a 9.
 private:
 	int capacidade;
 	const static int CAPACIDADE_MAXIMA = 9;
