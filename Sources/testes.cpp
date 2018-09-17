@@ -457,3 +457,161 @@ int TUTipoDeAcomodacao::run(){
     tearDown();
     return resultado;
 }
+
+//  *************************  TESTES DAS ENTIDADES  *******************************  //
+
+/*void TUUsuario::setUp(){
+    nome = new Nome();
+    identificador = new Identificador();
+    senha = new Senha();
+    resultado = SUCESSO;
+}
+
+void TUUsuario::tearDown(){
+    delete nome;
+    delete identificador;
+    delete senha;
+}
+
+void TUUsuario::testarCenarioSucesso(){
+    try{
+        nome->setNome(VALOR_VALIDO_NOME);
+        identificador->setIdentificador(VALOR_VALIDO_IDENTIFICADOR);
+        senha->setSenha(VALOR_VALIDO_SENHA);
+        if ((nome->getNome() != VALOR_VALIDO_NOME) && (identificador->getIdentificador() != VALOR_VALIDO_IDENTIFICADOR)
+              && (senha->getSenha() != VALOR_VALIDO_NOME))
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+int TUUsuario::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return resultado;
+}*/
+
+void TUAcomodacao::setUp(){
+    identificador = new Identificador();
+    acomodacao = new TipoDeAcomodacao();
+    capacidade = new CapacidadeDeAcomodacao();
+    dataInicio = new Data();
+    dataTermino = new Data();
+    cidade = new Nome();
+    sigla = new Estado();
+    preco = new Diaria();
+    resultado = SUCESSO;
+
+}
+
+void TUAcomodacao::tearDown(){
+    delete identificador;
+    delete acomodacao;
+    delete capacidade;
+    delete dataInicio;
+    delete dataTermino;
+    delete cidade;
+    delete sigla;
+    delete preco;
+
+}
+
+void TUAcomodacao::testarCenarioSucesso(){
+    try{
+        identificador->setIdentificador(VALOR_VALIDO_IDENTIFICADOR);
+        acomodacao->setTipoDeAcomodacao(VALOR_VALIDO_ACOMODACAO);
+        capacidade->setCapacidade(VALOR_VALIDO_CAPACIDADE);
+        dataInicio->setDataInicio(VALOR_VALIDO_INICIO);
+        dataTermino->setDataTermino(VALOR_VALIDO_TERMINO);
+        cidade->setNome(VALOR_VALIDO_CIDADE);
+        sigla->setEstado(VALOR_VALIDO_SIGLA);
+        preco->setDiaria(VALOR_VALIDO_PRECO);
+        if ((identificador->getIdentificador() != VALOR_VALIDO_IDENTIFICADOR) && 
+            (acomodacao->getTipoDeAcomodacao() != VALOR_VALIDO_ACOMODACAO) &&
+            (capacidade->getCapacidade() != VALOR_VALIDO_CAPACIDADE) && 
+            (dataInicio->getData() != VALOR_VALIDO_INICIO) &&
+            (dataTermino->getData() != VALOR_VALIDO_TERMINO) &&
+            (cidade->getNome() != VALOR_VALIDO_CIDADE) &&
+            (sigla->getEstado() != VALOR_VALIDO_SIGLA) &&
+            (preco->getDiaria() != VALOR_VALIDO_PRECO))
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+int TUAcomodacao::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return resultado;
+}
+
+void TUCartaoDeCredito::setUp(){
+    numCartaoDeCredito = new NumeroDeCartaoDeCredito();
+    dataDeValidade = new DataDeValidade();
+    resultado = SUCESSO;
+}
+
+void TUCartaoDeCredito::tearDown(){
+    delete numCartaoDeCredito;
+    delete dataDeValidade;
+}
+
+void TUCartaoDeCredito::testarCenarioSucesso(){
+    try{
+        numCartaoDeCredito->setNumeroDeCartaoDeCredito(VALOR_VALIDO_CARTAO);
+        dataDeValidade->setDataDeValidade(VALOR_VALIDO_VALIDADE);
+            if ((numCartaoDeCredito->getNumeroDeCartaoDeCredito() != VALOR_VALIDO_CARTAO) 
+                && (dataDeValidade->getDataDeValidade()) != VALOR_VALIDO_VALIDADE)
+                resultado = FALHA;
+    }
+    catch (invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+int TUCartaoDeCredito::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return resultado;
+}
+
+void TUContaCorrente::setUp(){
+    contaCorrente = new NumeroDeContaCorrente();
+    agencia = new Agencia();
+    banco = new Banco();
+    resultado = SUCESSO;
+}
+
+void TUContaCorrente::tearDown(){
+    delete contaCorrente;
+    delete agencia;
+    delete banco;
+}
+
+void TUContaCorrente::testarCenarioSucesso(){
+    try{
+        contaCorrente->setNumeroDeContaCorrente(VALOR_VALIDO_CONTA);
+        agencia->setAgencia(VALOR_VALIDO_AGENCIA);
+        banco->setBanco(VALOR_VALIDO_BANCO);
+            if ((contaCorrente->getNumeroDeContaCorrente() != VALOR_VALIDO_CONTA)
+                 && (agencia->getAgencia() != VALOR_VALIDO_AGENCIA) && (banco->getBanco() != VALOR_VALIDO_BANCO))
+                resultado = FALHA;
+    }
+    catch (invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+int TUContaCorrente::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return resultado;
+}
