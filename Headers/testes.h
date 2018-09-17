@@ -68,14 +68,14 @@ public:
 
 };
 
-class TUCapadicadeDeAcomodacao {
+class TUCapacidadeDeAcomodacao {
 private:
 	const static int VALOR_VALIDO   = 6;
     const static int VALOR_INVALIDO = 12;
 
     // Referência para o objeto a ser testado.
 
-    CapadicadeDeAcomodacao *capacidade;
+    CapacidadeDeAcomodacao *capacidade;
 
     // Resultado do teste.
 
@@ -101,7 +101,7 @@ public:
 
 class TUDiaria {
 private:
-	const static int VALOR_VALIDO   = 500.50;
+	const double VALOR_VALIDO   = 500.50;
     const static int VALOR_INVALIDO = 0;
 
     // Referência para o objeto a ser testado.
