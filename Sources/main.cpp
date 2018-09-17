@@ -10,7 +10,7 @@ int main()
 {
 	TUAgencia testeAgencia;
     TUBanco testeBanco;
-    TUCapadicadeDeAcomodacao testeCapacidade;
+    TUCapacidadeDeAcomodacao testeCapacidade;
 	TUDiaria testeDiaria;
     TUData testeData;
     TUDataDeValidade testeDataDeValidade;
@@ -19,7 +19,12 @@ int main()
     TUNome testeNome;
     TUNumeroDeCartaoDeCredito testeNumeroDeCartaoDeCredito;
     TUNumeroDeContaCorrente testeContaCorrente;
-    TUTipoDeAcomodacao testeAcomodacao;
+    TUTipoDeAcomodacao testeTipoAcomodacao;
+    //TUUsuario testeUsuario;
+    TUAcomodacao testeAcomodacao;
+    TUCartaoDeCredito testeCartao;
+    TUContaCorrente testeConta;
+
 
     switch(testeAgencia.run()){
         case TUAgencia::SUCESSO: cout << "SUCESSO" << endl;
@@ -36,9 +41,9 @@ int main()
     }
 
     switch(testeCapacidade.run()){
-        case TUCapadicadeDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
+        case TUCapacidadeDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
                                 				break;
-        case TUCapadicadeDeAcomodacao::FALHA  : cout << "FALHA" << endl;
+        case TUCapacidadeDeAcomodacao::FALHA  : cout << "FALHA" << endl;
                                 				break;
     }
 
@@ -90,7 +95,7 @@ int main()
         case TUNumeroDeCartaoDeCredito::FALHA: cout << "FALHA" << endl;
                                                 break;
     }
-	
+
     switch(testeContaCorrente.run()){
         case TUNumeroDeContaCorrente::SUCESSO: cout << "SUCESSO" << endl;
                                                break;
@@ -98,11 +103,32 @@ int main()
                                              break;
     }
 
-    switch(testeAcomodacao.run()){
+    switch(testeTipoAcomodacao.run()){
         case TUTipoDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
                                           break;
         case TUTipoDeAcomodacao::FALHA: cout << "FALHA" << endl;
                                         break;
+    }
+
+    switch(testeAcomodacao.run()){
+        case TUAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
+                                          break;
+        case TUAcomodacao::FALHA: cout << "FALHA" << endl;
+                                        break;
+    }
+
+    switch(testeCartao.run()){
+        case TUCartaoDeCredito::SUCESSO: cout << "SUCESSO" << endl;
+                                         break;
+        case TUCartaoDeCredito::FALHA: cout << "FALHA" << endl;
+                                       break;
+    }
+
+    switch(testeConta.run()){
+        case TUContaCorrente::SUCESSO: cout << "SUCESSO" << endl;
+                                       break;
+        case TUContaCorrente::FALHA: cout << "FALHA" << endl;
+                                     break;
     }
 
     return 0;
