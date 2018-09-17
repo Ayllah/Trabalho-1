@@ -9,7 +9,6 @@ using namespace std;
 class Usuario {
 
 private:
-
     Nome nome;
     Identificador identificador;
     Senha senha;
