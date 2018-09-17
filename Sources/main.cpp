@@ -8,13 +8,13 @@ using namespace std;
 
 int main()
 {
-	TUAgencia testeAgencia;
+    TUAgencia testeAgencia;
     TUBanco testeBanco;
     TUCapacidadeDeAcomodacao testeCapacidade;
-	TUDiaria testeDiaria;
+    TUDiaria testeDiaria;
     TUData testeData;
     TUDataDeValidade testeDataDeValidade;
-	TUEstado testeEstado;
+    TUEstado testeEstado;
     TUIdentificador testeIdentificador;
     TUNome testeNome;
     TUNumeroDeCartaoDeCredito testeNumeroDeCartaoDeCredito;
