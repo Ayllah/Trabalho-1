@@ -309,4 +309,67 @@ public:
 
     int run();
 };
+
+class TUNumeroDeContaCorrente {
+private:
+    const string VALOR_VALIDO = "005698";
+    const string VALOR_INVALIDO = "a569874";
+
+    // Referência para o objeto a ser testado.
+
+    NumeroDeContaCorrente *contaCorrente;
+
+    // Resultado do teste.
+
+    int resultado;
+
+    // Declarações de métodos.
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+
+    // Definições de constantes para reportar resultado do teste.
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+
+};
+
+class TUTipoDeAcomodacao {
+private:
+    const string VALOR_VALIDO = "Casa";
+    const string VALOR_INVALIDO = "Hotel";
+
+    // Referência para o objeto a ser testado.
+
+    TipoDeAcomodacao *acomodacao;
+
+    // Resultado do teste.
+
+    int resultado;
+
+    // Declarações de métodos.
+
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+
+    // Definições de constantes para reportar resultado do teste.
+
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+
+    int run();
+
+};
+
 #endif // TESTES_H_INCLUDED
