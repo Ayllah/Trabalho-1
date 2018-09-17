@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Usuario {
+/*class Usuario {
 
 private:
     Nome nome;
@@ -38,13 +38,13 @@ public:
     Senha getSenha() const {
         return senha;
     }
-};
+};*/
 
 class Acomodacao {
 private:
 	Identificador identificador;
 	TipoDeAcomodacao acomodacao;
-	CapadicadeDeAcomodacao capacidade;
+	CapacidadeDeAcomodacao capacidade;
 	Data dataInicio;
 	Data dataTermino;
 	Nome cidade;
@@ -68,11 +68,11 @@ public:
         return acomodacao;
     }
 
-    void setCapacidadeDeAcomodacao(CapacidadeDeAcomodacao capacidade){
+    void setCapacidade(CapacidadeDeAcomodacao capacidade){
         this->capacidade = capacidade;
     }
 
-    CapacidadeDeAcomodacao getCapacidadeDeAcomodacao() const {
+    CapacidadeDeAcomodacao getCapacidade() const {
         return capacidade;
     }
 
@@ -120,7 +120,7 @@ public:
 class CartaoDeCredito {
 private:
 	NumeroDeCartaoDeCredito numCartaoDeCredito;
-	DataDeValidade validade;
+	DataDeValidade dataDeValidade;
 
 public:
 
@@ -132,12 +132,12 @@ public:
         return numCartaoDeCredito;
     }
 
-    void setDataDeValidade(DataDeValidade validade){
-        this->validade = validade;
+    void setDataDeValidade(DataDeValidade dataDeValidade){
+        this->dataDeValidade = dataDeValidade;
     }
 
     DataDeValidade getDataDeValidade() const {
-        return validade;
+        return dataDeValidade;
     }
 };
 
