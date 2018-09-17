@@ -18,6 +18,8 @@ int main()
     TUIdentificador testeIdentificador;
     TUNome testeNome;
     TUNumeroDeCartaoDeCredito testeNumeroDeCartaoDeCredito;
+    TUNumeroDeContaCorrente testeContaCorrente;
+    TUTipoDeAcomodacao testeAcomodacao;
 
     switch(testeAgencia.run()){
         case TUAgencia::SUCESSO: cout << "SUCESSO" << endl;
@@ -87,6 +89,20 @@ int main()
                                                 break;
         case TUNumeroDeCartaoDeCredito::FALHA: cout << "FALHA" << endl;
                                                 break;
+    }
+	
+    switch(testeContaCorrente.run()){
+        case TUNumeroDeContaCorrente::SUCESSO: cout << "SUCESSO" << endl;
+                                               break;
+        case TUNumeroDeContaCorrente::FALHA: cout << "FALHA" << endl;
+                                             break;
+    }
+
+    switch(testeAcomodacao.run()){
+        case TUTipoDeAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
+                                          break;
+        case TUTipoDeAcomodacao::FALHA: cout << "FALHA" << endl;
+                                        break;
     }
 
     return 0;
