@@ -57,7 +57,7 @@ void Banco::setBanco(string banco) throw (invalid_argument){
     this->banco = banco;
 }
 
-void CapadicadeDeAcomodacao::validar(int capacidade) throw (invalid_argument){
+void CapacidadeDeAcomodacao::validar(int capacidade) throw (invalid_argument){
 
  	//Lança exceção se o valor for maior ou menor que os limites definidos
 
@@ -66,7 +66,7 @@ void CapadicadeDeAcomodacao::validar(int capacidade) throw (invalid_argument){
     }
 }
 
-void CapadicadeDeAcomodacao::setCapacidade(int capacidade) throw (invalid_argument){
+void CapacidadeDeAcomodacao::setCapacidade(int capacidade) throw (invalid_argument){
     validar(capacidade);
     this->capacidade = capacidade;
 }
