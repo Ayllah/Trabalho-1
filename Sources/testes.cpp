@@ -78,16 +78,16 @@ int TUBanco::run(){
     return resultado;
 }
 
-void TUCapadicadeDeAcomodacao::setUp(){
-    capacidade = new CapadicadeDeAcomodacao();
+void TUCapacidadeDeAcomodacao::setUp(){
+    capacidade = new CapacidadeDeAcomodacao();
     resultado = SUCESSO;
 }
 
-void TUCapadicadeDeAcomodacao::tearDown(){
+void TUCapacidadeDeAcomodacao::tearDown(){
     delete capacidade;
 }
 
-void TUCapadicadeDeAcomodacao::testarCenarioSucesso(){
+void TUCapacidadeDeAcomodacao::testarCenarioSucesso(){
     try{
         capacidade->setCapacidade(VALOR_VALIDO);
         if (capacidade->getCapacidade() != VALOR_VALIDO)
@@ -98,7 +98,7 @@ void TUCapadicadeDeAcomodacao::testarCenarioSucesso(){
     }
 }
 
-void TUCapadicadeDeAcomodacao::testarCenarioFalha(){
+void TUCapacidadeDeAcomodacao::testarCenarioFalha(){
     try{
         capacidade->setCapacidade(VALOR_INVALIDO);
         resultado = FALHA;
@@ -108,7 +108,7 @@ void TUCapadicadeDeAcomodacao::testarCenarioFalha(){
     }
 }
 
-int TUCapadicadeDeAcomodacao::run(){
+int TUCapacidadeDeAcomodacao::run(){
     setUp();
     testarCenarioSucesso();
     testarCenarioFalha();
