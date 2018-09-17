@@ -381,3 +381,79 @@ int TUNumeroDeCartaoDeCredito::run(){
     tearDown();
     return resultado;
 }
+
+void TUNumeroDeContaCorrente::setUp(){
+    contaCorrente = new NumeroDeContaCorrente();
+    resultado = SUCESSO;
+}
+
+void TUNumeroDeContaCorrente::tearDown(){
+    delete contaCorrente;
+}
+
+void TUNumeroDeContaCorrente::testarCenarioSucesso(){
+    try{
+        contaCorrente->setNumeroDeContaCorrente(VALOR_VALIDO);
+        if (contaCorrente->getNumeroDeContaCorrente() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUNumeroDeContaCorrente::testarCenarioFalha(){
+    try{
+        contaCorrente->setNumeroDeContaCorrente(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUNumeroDeContaCorrente::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}
+
+void TUTipoDeAcomodacao::setUp(){
+    acomodacao = new TipoDeAcomodacao();
+    resultado = SUCESSO;
+}
+
+void TUTipoDeAcomodacao::tearDown(){
+    delete acomodacao;
+}
+
+void TUTipoDeAcomodacao::testarCenarioSucesso(){
+    try{
+        acomodacao->setTipoDeAcomodacao(VALOR_VALIDO);
+        if (acomodacao->getTipoDeAcomodacao() != VALOR_VALIDO)
+            resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        resultado = FALHA;
+    }
+}
+
+void TUTipoDeAcomodacao::testarCenarioFalha(){
+    try{
+        acomodacao->setTipoDeAcomodacao(VALOR_INVALIDO);
+        resultado = FALHA;
+    }
+    catch(invalid_argument excecao){
+        return;
+    }
+}
+
+int TUTipoDeAcomodacao::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return resultado;
+}
