@@ -354,3 +354,53 @@ void NumeroDeCartaoDeCredito::setNumeroDeCartaoDeCredito(string numCartaoDeCredi
     validar(numCartaoDeCredito);
     this->numCartaoDeCredito = numCartaoDeCredito;
 }
+
+void NumeroDeContaCorrente::validar(string contaCorrente) throw (invalid_argument){
+    int verificadorTamanho;
+    int i;
+
+    //Lança exceção se o tamanho da string contaCorrente for diferente do tamanho definido
+    // ou se algum caracter da string apresentar valor diferente de 0-9
+
+    verificadorTamanho = contaCorrente.size();
+
+    if(verificadorTamanho != TAMANHO_MAXIMO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{ //testar a validade de cada digito
+        for (i = 0; i < TAMANHO_MAXIMO; ++i){
+            if(!isdigit(contaCorrente[i])){
+                throw invalid_argument("Argumento invalido.");
+            }
+        }
+    }
+}
+
+void NumeroDeContaCorrente::setNumeroDeContaCorrente(string contaCorrente) throw (invalid_argument){
+    validar(contaCorrente);
+    this->contaCorrente = contaCorrente;
+}
+
+void TipoDeAcomodacao::validar(string acomodacao) throw (invalid_argument){
+    int i;
+    int isAcomodacao;
+    string vetor[3] = {"Apartamento", "Casa", "Flat"};
+
+    //Lança exceção se o acomodacao for diferente das definidas
+
+    for(i = 0; i < TAMANHO_VETOR; ++i){
+        if(acomodacao.compare(vetor[i]) == 0){
+            isAcomodacao = 1;
+            break;
+        }
+    }
+
+    if(!isAcomodacao){
+        throw invalid_argument("Argumento invalido.");
+}   
+}
+
+void TipoDeAcomodacao::setTipoDeAcomodacao(string acomodacao) throw (invalid_argument){
+    validar(acomodacao);
+    this->acomodacao = acomodacao;
+}
