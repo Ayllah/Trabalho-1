@@ -248,19 +248,20 @@ public:
 
 class NumeroDeContaCorrente { //Formato XXXXXX onde X é dígito (0 – 9).
 private:
-	int contaCorrente;
+	string contaCorrente;
+	const static int TAMANHO_MAXIMO = 6;
 
 	//Método responsável por validação
 
-	void validar(int) throw (invalid_argument);
+	void validar(string) throw (invalid_argument);
 
 public:
 
 	//Métodos de acesso
 
-	void setNumeroDeContaCorrente(int) throw (invalid_argument);
+	void setNumeroDeContaCorrente(string) throw (invalid_argument);
 
-    int getNumeroDeContaCorrente() const {
+    string getNumeroDeContaCorrente() const {
         return contaCorrente;
     }
 
@@ -292,6 +293,7 @@ public:
 class TipoDeAcomodacao { //Apartamento, Casa, Flat
 private:
 	string acomodacao;
+	const static int TAMANHO_VETOR = 3; 
 
 	//Método responsável por validação
 
@@ -308,5 +310,4 @@ public:
     }
 
 };
-
 #endif // DOMINIOS_H_INCLUDED
