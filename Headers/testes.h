@@ -374,7 +374,7 @@ public:
 
 //  *************************  TESTES DAS ENTIDADES  *******************************  //
 
-/*class TUUsuario {
+class TUUsuario {
 private:
     const string VALOR_VALIDO_NOME = "Jose Maria";
     const string VALOR_VALIDO_IDENTIFICADOR = "jose";
@@ -405,8 +405,9 @@ public:
 
     int run();
 
-};*/
+};
 
+/*
 class TUAcomodacao {
 private:
     const string VALOR_VALIDO_IDENTIFICADOR = "canarinhos";
@@ -449,6 +450,7 @@ public:
     int run();
 
 };
+*/
 
 class TUCartaoDeCredito {
 private:

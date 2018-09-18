@@ -6,7 +6,7 @@
 
 using namespace std;
 
-/*class Usuario {
+class Usuario {
 
 private:
     Nome nome;
@@ -38,8 +38,9 @@ public:
     Senha getSenha() const {
         return senha;
     }
-};*/
+};
 
+/*
 class Acomodacao {
 private:
 	Identificador identificador;
@@ -76,7 +77,7 @@ public:
         return capacidade;
     }
 
-    void setData(Data dataInicio){
+    void setData(Data dataInicio, int test){
         this->dataInicio = dataInicio;
     }
 
@@ -116,6 +117,7 @@ public:
         return preco;
     }
 };
+*/
 
 class CartaoDeCredito {
 private:

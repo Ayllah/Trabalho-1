@@ -381,6 +381,44 @@ void NumeroDeContaCorrente::setNumeroDeContaCorrente(string contaCorrente) throw
     this->contaCorrente = contaCorrente;
 }
 
+void Senha::validar(string senha) throw (invalid_argument){
+    int verificadorTamanho;
+    int isSimbolo;
+    int i, j;
+    
+    string simbolos[TAMANHO_SIMBOLOS] = {"!", "#", "$", "%%", "&"};
+
+    verificadorTamanho = senha.size();
+
+    if (verificadorTamanho != TAMANHO){
+        throw invalid_argument("Argumento invalido.");
+    }
+    else{
+        for (i = 0; i < verificadorTamanho; ++i){
+            if( !isalnum(senha[i]) ){
+                throw invalid_argument("Argumento invalido.");
+            }
+            else{
+                isSimbolo = 0;
+                for (j = 0; j < TAMANHO_SIMBOLOS; ++j){
+                    if( senha.compare(simbolos[j]) == 0 ){
+                        isSimbolo = 1;
+                        break;
+                    }
+                }
+                if(!isSimbolo){
+                    throw invalid_argument("Argumento invalido.");
+                }
+            }
+        }
+    }
+}
+
+void Senha::setSenha(string senha) throw (invalid_argument){
+    validar(senha);
+    this->senha = senha;
+}
+
 void TipoDeAcomodacao::validar(string acomodacao) throw (invalid_argument){
     int i;
     int isAcomodacao;
@@ -397,7 +435,7 @@ void TipoDeAcomodacao::validar(string acomodacao) throw (invalid_argument){
 
     if(!isAcomodacao){
         throw invalid_argument("Argumento invalido.");
-}   
+    }   
 }
 
 void TipoDeAcomodacao::setTipoDeAcomodacao(string acomodacao) throw (invalid_argument){

@@ -273,7 +273,8 @@ class Senha { //Formato XXXXXXXX onde X pode ser um símbolo (! # $ % &), uma le
 				//um símbolo.
 private:
 	string senha;
-
+	const static int TAMANHO = 8;
+	const static int TAMANHO_SIMBOLOS = 5;
 	//Método responsável por validação
 
 	void validar(string) throw (invalid_argument);

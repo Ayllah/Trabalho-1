@@ -20,8 +20,8 @@ int main()
     TUNumeroDeCartaoDeCredito testeNumeroDeCartaoDeCredito;
     TUNumeroDeContaCorrente testeContaCorrente;
     TUTipoDeAcomodacao testeTipoAcomodacao;
-    //TUUsuario testeUsuario;
-    TUAcomodacao testeAcomodacao;
+    TUUsuario testeUsuario;
+    //TUAcomodacao testeAcomodacao;
     TUCartaoDeCredito testeCartao;
     TUContaCorrente testeConta;
 
@@ -110,17 +110,26 @@ int main()
                                         break;
     }
 
+    switch(testeUsuario.run()){
+        case TUUsuario::SUCESSO: cout << "TUUSUCESSO" << endl;
+                                          break;
+        case TUUsuario::FALHA: cout << "TUUFALHA" << endl;
+                                        break;
+    }
+
+    /*
     switch(testeAcomodacao.run()){
         case TUAcomodacao::SUCESSO: cout << "SUCESSO" << endl;
                                           break;
         case TUAcomodacao::FALHA: cout << "FALHA" << endl;
                                         break;
     }
+    */
 
     switch(testeCartao.run()){
-        case TUCartaoDeCredito::SUCESSO: cout << "SUCESSO" << endl;
+        case TUCartaoDeCredito::SUCESSO: cout << "TUCartaoSUCESSO" << endl;
                                          break;
-        case TUCartaoDeCredito::FALHA: cout << "FALHA" << endl;
+        case TUCartaoDeCredito::FALHA: cout << "TUCartaoFALHA" << endl;
                                        break;
     }
 

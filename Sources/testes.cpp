@@ -460,7 +460,7 @@ int TUTipoDeAcomodacao::run(){
 
 //  *************************  TESTES DAS ENTIDADES  *******************************  //
 
-/*void TUUsuario::setUp(){
+void TUUsuario::setUp(){
     nome = new Nome();
     identificador = new Identificador();
     senha = new Senha();
@@ -478,8 +478,9 @@ void TUUsuario::testarCenarioSucesso(){
         nome->setNome(VALOR_VALIDO_NOME);
         identificador->setIdentificador(VALOR_VALIDO_IDENTIFICADOR);
         senha->setSenha(VALOR_VALIDO_SENHA);
-        if ((nome->getNome() != VALOR_VALIDO_NOME) && (identificador->getIdentificador() != VALOR_VALIDO_IDENTIFICADOR)
-              && (senha->getSenha() != VALOR_VALIDO_NOME))
+        if ((nome->getNome() != VALOR_VALIDO_NOME) ||
+            (identificador->getIdentificador() != VALOR_VALIDO_IDENTIFICADOR) ||
+            (senha->getSenha() != VALOR_VALIDO_NOME))
             resultado = FALHA;
     }
     catch(invalid_argument excecao){
@@ -492,8 +493,9 @@ int TUUsuario::run(){
     testarCenarioSucesso();
     tearDown();
     return resultado;
-}*/
+}
 
+/*
 void TUAcomodacao::setUp(){
     identificador = new Identificador();
     acomodacao = new TipoDeAcomodacao();
@@ -550,7 +552,7 @@ int TUAcomodacao::run(){
     tearDown();
     return resultado;
 }
-
+*/
 void TUCartaoDeCredito::setUp(){
     numCartaoDeCredito = new NumeroDeCartaoDeCredito();
     dataDeValidade = new DataDeValidade();
@@ -566,8 +568,8 @@ void TUCartaoDeCredito::testarCenarioSucesso(){
     try{
         numCartaoDeCredito->setNumeroDeCartaoDeCredito(VALOR_VALIDO_CARTAO);
         dataDeValidade->setDataDeValidade(VALOR_VALIDO_VALIDADE);
-            if ((numCartaoDeCredito->getNumeroDeCartaoDeCredito() != VALOR_VALIDO_CARTAO) 
-                && (dataDeValidade->getDataDeValidade()) != VALOR_VALIDO_VALIDADE)
+            if ((numCartaoDeCredito->getNumeroDeCartaoDeCredito() != VALOR_VALIDO_CARTAO) ||
+               (dataDeValidade->getDataDeValidade()) != VALOR_VALIDO_VALIDADE)
                 resultado = FALHA;
     }
     catch (invalid_argument excecao){
