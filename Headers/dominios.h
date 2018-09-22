@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Agencia { //Formato XXXXX onde X é dígito (0 - 9).
+class Agencia {
 private:
 	string agencia;
 	const static int TAMANHO = 5;
@@ -47,7 +47,7 @@ public:
 
 };
 
-class CapacidadeDeAcomodacao { //Valor de 1 a 9.
+class CapacidadeDeAcomodacao {
 private:
 	int capacidade;
 	const static int CAPACIDADE_MAXIMA = 9;
@@ -68,7 +68,7 @@ public:
     }
 };
 
-class Diaria { //Valor de R$ 1,00 a R$ 10.000,00.
+class Diaria {
 private:
 	double preco;
 	const static int PRECO_MAXIMO = 10000;
@@ -90,9 +90,7 @@ public:
 
 };
 
-class Data { //Formato DD/MMM/AAAA. DD é número de 01 e 31. MMM é jan,
-			//fev, mar, abr, mai, jun, jul, ago, set, out, nov ou dez. AAAA é número de
-			//2000 a 2099. A data considera anos bissextos.
+class Data {
 private:
 	string data;
 	const static int TAMANHO = 11;
@@ -125,7 +123,7 @@ public:
 	
 };
 
-class DataDeValidade { //Formato MM/AA. MM é número de 01 a 12. AA é número de 00 a 99.
+class DataDeValidade {
 private:
 	string validade;
 	const static int TAMANHO = 5;
@@ -157,8 +155,7 @@ public:
 	
 };
 
-class Estado { //AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE,
-				//PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO
+class Estado {
 private:
 	string sigla;
 	const static int TAMANHO_PADRAO_UF = 2;
@@ -181,7 +178,7 @@ public:
 
 };
 
-class Identificador { //Formato XXXXX onde X é letra minúscula (a - z).
+class Identificador {
 private:
 	string identificador;
 	const static int TAMANHO = 5;
@@ -202,9 +199,7 @@ public:
 
 };
 
-class Nome { //Formato XXXXXXXXXXXXXXX . Cada X pode ser letra, espaço ou ponto.
-			//Pelos menos um caracter é letra. Não há espaços seguidos. Ponto é precedido
-			//por letra.
+class Nome {
 private:
 	string nome;
 	const static int TAMANHO_MAXIMO = 15;
@@ -225,8 +220,7 @@ public:
 
 };
 
-class NumeroDeCartaoDeCredito { //Formato XXXXXXXXXXXXXXXX onde X é dígito (0 – 9). Número válido
-								//segundo o algoritmo de Luhn (https://en.wikipedia.org/wiki/Luhn_algorithm).
+class NumeroDeCartaoDeCredito {
 private:
 	string numCartaoDeCredito;
 	const static int TAMANHO = 16;
@@ -246,7 +240,7 @@ public:
 
 };
 
-class NumeroDeContaCorrente { //Formato XXXXXX onde X é dígito (0 – 9).
+class NumeroDeContaCorrente {
 private:
 	string contaCorrente;
 	const static int TAMANHO_MAXIMO = 6;
@@ -267,16 +261,15 @@ public:
 
 };
 
-class Senha { //Formato XXXXXXXX onde X pode ser um símbolo (! # $ % &), uma letra
-				//maiúscula ou minúscula (A – Z a – z) ou um dígito (0 a 9). Não há caracters
-				//repetidos. Há, pelo menos, uma letra maiúscula, uma minúscula, um dígito e
-				//um símbolo.
+class Senha {
 private:
 	string senha;
 	const static int TAMANHO = 8;
 	const static int TAMANHO_SIMBOLOS = 5;
+	const static int QUANTIDADE_CARACTERES = 256;
 	//Método responsável por validação
-
+	bool verificaCaracteresObrigatorios(string senha) throw (invalid_argument);
+	bool verificaRepeticao(string senha) throw (invalid_argument);
 	void validar(string) throw (invalid_argument);
 
 public:
@@ -291,7 +284,7 @@ public:
 
 };
 
-class TipoDeAcomodacao { //Apartamento, Casa, Flat
+class TipoDeAcomodacao {
 private:
 	string acomodacao;
 	const static int TAMANHO_VETOR = 3; 
@@ -311,4 +304,5 @@ public:
     }
 
 };
+
 #endif // DOMINIOS_H_INCLUDED
