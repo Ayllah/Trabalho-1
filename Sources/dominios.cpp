@@ -1,6 +1,5 @@
 #include "dominios.h"
 
-#include <iostream>//comentar depois
 #include <string>
 #include <cstring>
 #include <vector>
@@ -381,12 +380,69 @@ void NumeroDeContaCorrente::setNumeroDeContaCorrente(string contaCorrente) throw
     this->contaCorrente = contaCorrente;
 }
 
+bool Senha::verificaCaracteresObrigatorios(string senha) throw (invalid_argument){
+    bool digito = 0;
+    bool letraMaiuscula = 0;
+    bool letraMinuscula = 0;
+    bool simbolo = 0;
+    int i, j;
+
+    char simbolosObrigatorios[TAMANHO_SIMBOLOS] = {'!', '#', '$', '%', '&'};
+
+    for(i = 0; i < senha.size(); ++i){
+        if(islower(senha[i])){
+            letraMinuscula = 1;
+        }
+        else if(isupper(senha[i])){
+            letraMaiuscula = 1;
+        }
+        else if(isdigit(senha[i])){
+            digito = 1;
+        }
+        else{
+            for(j = 0; j < TAMANHO_SIMBOLOS; ++j){
+                if(senha[i] == simbolosObrigatorios[j]){
+                    simbolo = 1;
+                }
+            }
+        }
+
+        if (digito * letraMinuscula * letraMaiuscula * simbolo == 1)
+            break;
+    }
+    return digito * letraMinuscula * letraMaiuscula * simbolo;
+}
+
+bool Senha::verificaRepeticao(string senha) throw (invalid_argument){
+    int i;
+    int verificadorTamanho;
+    char extratorCaracter;
+    bool caracteres[QUANTIDADE_CARACTERES];
+    
+    //Inicializando a contagem
+    verificadorTamanho = senha.size();
+    for (i = 0; i < QUANTIDADE_CARACTERES; ++i){
+        caracteres[i] = 0;
+    }
+
+    for (i = 0; i < verificadorTamanho; i++){
+        if(caracteres[int(senha[i])]){
+            return 1;
+        }
+        else{
+            caracteres[int(senha[i])] = 1;
+        }
+    }
+
+    return 0;
+}
+
 void Senha::validar(string senha) throw (invalid_argument){
     int verificadorTamanho;
-    int isSimbolo;
+    bool isSimbolo;
     int i, j;
     
-    string simbolos[TAMANHO_SIMBOLOS] = {"!", "#", "$", "%%", "&"};
+    char simbolos[TAMANHO_SIMBOLOS] = {'!', '#', '$', '%', '&'};
 
     verificadorTamanho = senha.size();
 
@@ -395,21 +451,24 @@ void Senha::validar(string senha) throw (invalid_argument){
     }
     else{
         for (i = 0; i < verificadorTamanho; ++i){
-            if( !isalnum(senha[i]) ){
+            isSimbolo = 0;
+            for (j = 0; j < TAMANHO_SIMBOLOS; ++j){
+                if( senha[i] == simbolos[j]){
+                    isSimbolo = 1;
+                    break;
+                }
+            }
+
+            if( !isSimbolo && !isalnum(senha[i]) ){
                 throw invalid_argument("Argumento invalido.");
             }
-            else{
-                isSimbolo = 0;
-                for (j = 0; j < TAMANHO_SIMBOLOS; ++j){
-                    if( senha.compare(simbolos[j]) == 0 ){
-                        isSimbolo = 1;
-                        break;
-                    }
-                }
-                if(!isSimbolo){
-                    throw invalid_argument("Argumento invalido.");
-                }
-            }
+        }
+
+        if( verificaRepeticao(senha) ){
+            throw invalid_argument("Argumento invalido.");
+        }
+        else if( !verificaCaracteresObrigatorios(senha) ){
+            throw invalid_argument("Argumento invalido.");
         }
     }
 }
