@@ -7,10 +7,10 @@ LDIR = ../lib
 
 LIBS = -lm
 
-_DEPS = dominios.h entidades.h testes.h
+_DEPS = dominios.h entidades.h testesDominios.h testesEntidades.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = dominios.o entidades.o testes.o main.o
+_OBJ = dominios.o entidades.o testesDominios.o testesEntidades.o main.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: %.cpp $(DEPS)
