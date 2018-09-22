@@ -7,174 +7,180 @@
 using namespace std;
 
 class Usuario {
-
 private:
-    Nome nome;
-    Identificador identificador;
-    Senha senha;
+    Nome nomeUsuario;
+    Identificador identificadorUsuario;
+    Senha senhaUsuario;
 
 public:
 
-    void setNome(Nome nome){
-        this->nome = nome;
+    void setNomeUsuario(Nome nomeUsuario){
+        this->nomeUsuario = nomeUsuario;
     }
 
-    Nome getNome() const {
-        return nome;
+    Nome getNomeUsuario() const {
+        return nomeUsuario;
     }
 
-    void setIdentificador(Identificador identificador){
-        this->identificador = identificador;
+    void setIdentificadorUsuario(Identificador identificadorUsuario){
+        this->identificadorUsuario = identificadorUsuario;
     }
 
-    Identificador getIdentificador() const {
-        return identificador;
+    Identificador getIdentificadorUsuario() const {
+        return identificadorUsuario;
     }
 
-    void setSenha(Senha senha){
-        this->senha = senha;
+    void setSenhaUsuario(Senha senhaUsuario){
+        this->senhaUsuario = senhaUsuario;
     }
 
-    Senha getSenha() const {
-        return senha;
+    Senha getSenhaUsuario() const {
+        return senhaUsuario;
     }
 };
 
-/*
 class Acomodacao {
 private:
-	Identificador identificador;
-	TipoDeAcomodacao acomodacao;
-	CapacidadeDeAcomodacao capacidade;
-	Data dataInicio;
-	Data dataTermino;
-	Nome cidade;
-	Estado sigla;
-	Diaria preco;
+	Identificador identificadorAcomodacao;
+	TipoDeAcomodacao acomodacaoAcomodacao;
+	CapacidadeDeAcomodacao capacidadeAcomodacao;
+	Data dataInicioAcomodacao;
+	Data dataTerminoAcomodacao;
+	Nome cidadeAcomodacao;
+	Estado siglaAcomodacao;
+	Diaria precoAcomodacao;
 
 public:
-	void setIdentificador(Identificador identificador){
-        this->identificador = identificador;
+	void setIdentificadorAcomodacao(Identificador identificadorAcomodacao){
+        this->identificadorAcomodacao = identificadorAcomodacao;
     }
 
-    Identificador getIdentificador() const {
-        return identificador;
+    Identificador getIdentificadorAcomodacao() const {
+        return identificadorAcomodacao;
     }
 
-    void setTipoDeAcomodacao(TipoDeAcomodacao acomodacao){
-        this->acomodacao = acomodacao;
+    void setTipoAcomodacao(TipoDeAcomodacao acomodacaoAcomodacao){
+        this->acomodacaoAcomodacao = acomodacaoAcomodacao;
     }
 
-    TipoDeAcomodacao getTipoDeAcomodacao() const {
-        return acomodacao;
+    TipoDeAcomodacao getTipoAcomodacao() const {
+        return acomodacaoAcomodacao;
     }
 
-    void setCapacidade(CapacidadeDeAcomodacao capacidade){
-        this->capacidade = capacidade;
+    void setCapacidadeAcomodacao(CapacidadeDeAcomodacao capacidadeAcomodacao){
+        this->capacidadeAcomodacao = capacidadeAcomodacao;
     }
 
-    CapacidadeDeAcomodacao getCapacidade() const {
-        return capacidade;
+    CapacidadeDeAcomodacao getCapacidadeAcomodacao() const {
+        return capacidadeAcomodacao;
     }
 
-    void setData(Data dataInicio, int test){
+<<<<<<< HEAD
+    void setDataInicioAcomodacao(Data dataInicioAcomodacao){
+        this->dataInicioAcomodacao = dataInicioAcomodacao;
+=======
+    void setDataInicio(Data dataInicio){
         this->dataInicio = dataInicio;
+>>>>>>> 40f12d1e27a0301754f1c11a185d07ba6ce3d185
     }
 
-    Data getData() const {
-        return dataInicio;
+    Data getDataInicioAcomodacao() const {
+        return dataInicioAcomodacao;
     }
 
-    void setData(Data dataTermino){
-        this->dataTermino = dataTermino;
+    void setDataTerminoAcomodacao(Data dataTerminoAcomodacao){
+        this->dataTerminoAcomodacao = dataTerminoAcomodacao;
     }
 
-    Data getData() const {
+<<<<<<< HEAD
+    Data getDataTerminoAcomodacao() const {
+        return dataTerminoAcomodacao;
+    }
+
+    void setNomeAcomodacao(Nome cidadeAcomodacao){
+        this->cidadeAcomodacao = cidadeAcomodacao;
+    }
+
+    Nome getNomeAcomodacao() const {
+        return cidadeAcomodacao;
+    }
+
+    void setEstadoAcomodacao(Estado siglaAcomodacao){
+        this->siglaAcomodacao = siglaAcomodacao;
+=======
+    Data getDataTermino() const {
         return dataTermino;
+>>>>>>> 40f12d1e27a0301754f1c11a185d07ba6ce3d185
     }
 
-    void setNome(Nome cidade){
-        this->cidade = cidade;
+    Estado getEstadoAcomodacao() const {
+        return siglaAcomodacao;
     }
 
-    Nome getNome() const {
-        return cidade;
+    void setDiariaAcomodacao(Diaria precoAcomodacao){
+        this->precoAcomodacao = precoAcomodacao;
     }
 
-    void setEstado(Estado sigla){
-        this->sigla = sigla;
-    }
-
-    Estado getEstado() const {
-        return sigla;
-    }
-
-    void setDiaria(Diaria preco){
-        this->preco = preco;
-    }
-
-    Diaria getDiaria() const {
-        return preco;
+    Diaria getDiariaAcomodacao() const {
+        return precoAcomodacao;
     }
 };
-*/
 
 class CartaoDeCredito {
 private:
-	NumeroDeCartaoDeCredito numCartaoDeCredito;
-	DataDeValidade dataDeValidade;
+	NumeroDeCartaoDeCredito numCartaoCredito;
+	DataDeValidade dataDeValidadeCartaoDeCredito;
 
 public:
 
-	void setNumeroDeCartaoDeCredito(NumeroDeCartaoDeCredito numCartaoDeCredito){
-        this->numCartaoDeCredito = numCartaoDeCredito;
+	void setNumeroCartaoCredito(NumeroDeCartaoDeCredito numCartaoCredito){
+        this->numCartaoCredito = numCartaoCredito;
     }
 
-    NumeroDeCartaoDeCredito getNumeroDeCartaoDeCredito() const {
-        return numCartaoDeCredito;
+    NumeroDeCartaoDeCredito getNumeroCartaoCredito() const {
+        return numCartaoCredito;
     }
 
-    void setDataDeValidade(DataDeValidade dataDeValidade){
-        this->dataDeValidade = dataDeValidade;
+    void setDataDeValidadeCartaoDeCredito(DataDeValidade dataDeValidadeCartaoDeCredito){
+        this->dataDeValidadeCartaoDeCredito = dataDeValidadeCartaoDeCredito;
     }
 
-    DataDeValidade getDataDeValidade() const {
-        return dataDeValidade;
+    DataDeValidade getDataDeValidadeCartaoDeCredito() const {
+        return dataDeValidadeCartaoDeCredito;
     }
 };
 
 class ContaCorrente {
 private:
-	NumeroDeContaCorrente contaCorrente;
-	Agencia agencia;
-	Banco banco;
+	NumeroDeContaCorrente numeroContaCorrente;
+	Agencia agenciaContaCorrente;
+	Banco bancoContaCorrente;
 
 public:
 
-	void setNumeroDeContaCorrente(NumeroDeContaCorrente contaCorrente){
-        this->contaCorrente = contaCorrente;
+	void setNumeroContaCorrente(NumeroDeContaCorrente numeroContaCorrente){
+        this->numeroContaCorrente = numeroContaCorrente;
     }
 
-    NumeroDeContaCorrente getNumeroDeContaCorrente() const {
-        return contaCorrente;
+    NumeroDeContaCorrente getNumeroContaCorrente() const {
+        return numeroContaCorrente;
     }
 
-    void setAgencia(Agencia agencia){
-        this->agencia = agencia;
+    void setAgenciaContaCorrente(Agencia agenciaContaCorrente){
+        this->agenciaContaCorrente = agenciaContaCorrente;
     }
 
-    Agencia getAgencia() const {
-        return agencia;
+    Agencia getAgenciaContaCorrente() const {
+        return agenciaContaCorrente;
     }
 
-    void setBanco(Banco banco){
-        this->banco = banco;
+    void setBancoContaCorrente(Banco bancoContaCorrente){
+        this->bancoContaCorrente = bancoContaCorrente;
     }
 
-    Banco getBanco() const {
-        return banco;
+    Banco getBancoContaCorrente() const {
+        return bancoContaCorrente;
     }
 };
-
 
 #endif // ENTIDADES_H_INCLUDED
